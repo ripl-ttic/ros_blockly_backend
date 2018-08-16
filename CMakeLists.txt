@@ -19,7 +19,7 @@ generate_messages(
 )
 
 catkin_install_python(PROGRAMS
-  scripts/blockly_backend.py
+  scripts/backend.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/scripts
 )
 
