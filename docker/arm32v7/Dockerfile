@@ -21,10 +21,13 @@ RUN pip3 install \
 SHELL ["/bin/bash", "-c"]
 
 # build blockly_backend
-RUN mkdir -p /root/software/catkin_ws/src
-RUN git clone --depth 1 https://github.com/ripl-ttic/ros_blockly_backend.git /root/software/catkin_ws/src/blockly_backend
-RUN source /opt/ros/$ROS_DISTRO/setup.bash; catkin_make -j2 -C /root/software/catkin_ws
+RUN mkdir -p /home/software/catkin_ws/src
+RUN git clone --depth 1 https://github.com/ripl-ttic/ros_blockly_backend /home/software/catkin_ws/src/blockly_backend
+RUN source /opt/ros/$ROS_DISTRO/setup.bash; catkin_make -j2 -C /home/software/catkin_ws
 
 # configure entrypoint
 COPY assets/entrypoint_ros_blockly_backend.sh /entrypoint_ros_blockly_backend.sh
 ENTRYPOINT ["/ros_entrypoint.sh", "/entrypoint_ros_blockly_backend.sh"]
+
+# configure STANDALONE mode
+ENV STANDALONE 0

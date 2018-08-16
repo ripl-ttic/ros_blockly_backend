@@ -2,7 +2,11 @@
 
 # source ROS and blockly_backend
 source /opt/ros/$ROS_DISTRO/setup.bash
-source /root/software/catkin_ws/devel/setup.bash
+source /home/software/catkin_ws/devel/setup.bash
 
 # launch blockly
-roslaunch --wait blockly_backend blockly_backend.launch
+if [[ "$STANDALONE" == 1 ]]; then
+    roslaunch blockly_backend blockly_backend.launch
+else
+    roslaunch --wait blockly_backend blockly_backend.launch
+fi
