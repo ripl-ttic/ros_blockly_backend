@@ -10,7 +10,7 @@ from subprocess import Popen
 from std_msgs.msg import String
 from std_srvs.srv import Empty, EmptyResponse, Trigger, TriggerResponse
 from autobahn.asyncio.websocket import WebSocketServerProtocol, WebSocketServerFactory
-from robot_blockly.srv import SetCurrentBlockId, SetCurrentBlockIdResponse
+from blockly_backend.srv import SetCurrentBlockId, SetCurrentBlockIdResponse
 
 try:
     import asyncio
@@ -163,7 +163,7 @@ class BlocklyServerProtocol(WebSocketServerProtocol):
         target.write("import subprocess\n")
         target.write("from std_msgs.msg import String\n")
         target.write("from std_srvs.srv import Empty, Trigger\n")
-        target.write("from robot_blockly.srv import SetCurrentBlockId\n")
+        target.write("from blockly_backend.srv import SetCurrentBlockId\n")
         target.write("\n")
         target.write("rospy.init_node('blockly_node', anonymous=True)\n")
         target.write("ros_initial_nodes = rosnode.get_node_names()\n")

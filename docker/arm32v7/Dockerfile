@@ -20,9 +20,9 @@ RUN pip3 install \
 # set shell to bash
 SHELL ["/bin/bash", "-c"]
 
-# build robot_blockly
+# build blockly_backend
 RUN mkdir -p /root/software/catkin_ws/src
-RUN git clone --depth 1 https://github.com/ripl-ttic/ros_blockly_backend.git /root/software/catkin_ws/src/robot_blockly
+RUN git clone --depth 1 https://github.com/ripl-ttic/ros_blockly_backend.git /root/software/catkin_ws/src/blockly_backend
 RUN source /opt/ros/$ROS_DISTRO/setup.bash; catkin_make -j2 -C /root/software/catkin_ws
 
 # configure entrypoint
