@@ -1,6 +1,6 @@
 # ROS Blockly Backend
 
-A ROS package that simplifies robot interaction using the Blobkly web interface
+A ROS package that simplifies robot interaction using the Blockly web interface
 
 
 ### Acknowledgements
